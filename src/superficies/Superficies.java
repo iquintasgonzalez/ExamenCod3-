@@ -4,8 +4,9 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
+ * main del programa de calcular areas
  * Examen de MVC 3ª Avaliación
- *
+ * @author iquintasgonzalez
  * @version 1.2
  * @author damian
  */
@@ -14,8 +15,11 @@ public class Superficies {
     private static Scanner sc;
 
     /**
+     * Esto es el main el el cual hice to´
      * @param args the command line arguments
+     * 
      */
+    
     public static void main(String[] args) {
         Modelo contenedor = new Modelo();
 
@@ -42,7 +46,10 @@ public class Superficies {
         Vista.imprimir(contenedor);
     }
 
-    
+    /**
+     * metodo que hace las operaciones
+     * @param contenedor 
+     */
     public static void realizaOperacion(Modelo contenedor) {
         float resultado = 0;
         switch (contenedor.getOperacion()) {

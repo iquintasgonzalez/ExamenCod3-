@@ -42,6 +42,7 @@ public class Superficies {
         Vista.imprimir(contenedor);
     }
 
+    
     public static void realizaOperacion(Modelo contenedor) {
         float resultado = 0;
         switch (contenedor.getOperacion()) {

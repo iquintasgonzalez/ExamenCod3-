@@ -20,13 +20,14 @@ public class Modelo {
     float rectangleArea;
     float triangleArea;
     float circleArea;
+    float resultado;
     
     String operacion;
 
     public Modelo() {
     }
 
-    public Modelo(float sideLength, float sideHeight, float height, float baseLength, float radius, float squareArea, float rectangleArea, float triangleArea, float circleArea, String operacion) {
+    public Modelo(float sideLength, float sideHeight, float height, float baseLength, float radius, float squareArea, float rectangleArea, float triangleArea, float circleArea, float resultado, String operacion) {
         this.sideLength = sideLength;
         this.sideHeight = sideHeight;
         this.height = height;
@@ -36,6 +37,7 @@ public class Modelo {
         this.rectangleArea = rectangleArea;
         this.triangleArea = triangleArea;
         this.circleArea = circleArea;
+        this.resultado = resultado;
         this.operacion = operacion;
     }
 
@@ -73,6 +75,10 @@ public class Modelo {
 
     public float getCircleArea() {
         return circleArea;
+    }
+
+    public float getResultado() {
+        return resultado;
     }
 
     public String getOperacion() {
@@ -115,14 +121,18 @@ public class Modelo {
         this.circleArea = circleArea;
     }
 
+    public void setResultado(float resultado) {
+        this.resultado = resultado;
+    }
+
     public void setOperacion(String operacion) {
         this.operacion = operacion;
     }
 
     @Override
     public String toString() {
-        return "Modelo{" + "sideLength=" + sideLength + ", sideHeight=" + sideHeight + ", height=" + height + ", baseLength=" + baseLength + ", radius=" + radius + ", squareArea=" + squareArea + ", rectangleArea=" + rectangleArea + ", triangleArea=" + triangleArea + ", circleArea=" + circleArea + ", operacion=" + operacion + '}';
+        return "Modelo{" + "sideLength=" + sideLength + ", sideHeight=" + sideHeight + ", height=" + height + ", baseLength=" + baseLength + ", radius=" + radius + ", squareArea=" + squareArea + ", rectangleArea=" + rectangleArea + ", triangleArea=" + triangleArea + ", circleArea=" + circleArea + ", resultado=" + resultado + ", operacion=" + operacion + '}';
     }
-    
 
+   
 }

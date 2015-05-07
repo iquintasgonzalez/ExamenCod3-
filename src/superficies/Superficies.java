@@ -58,8 +58,8 @@ public class Superficies {
 
                 break;
             case "circle":
-                
-                resultado = (float) (3.14159265 * contenedor.getRadius()*contenedor.getRadius());
+
+                resultado = (float) (3.14159265 * contenedor.getRadius() * contenedor.getRadius());
 
                 break;
         }

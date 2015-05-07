@@ -1,10 +1,12 @@
 package superficies;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  * Examen de MVC 3ª Avaliación
  *
+ * @version 1.2
  * @author damian
  */
 public class Superficies {
@@ -15,65 +17,53 @@ public class Superficies {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String shapeType;
+        Modelo contenedor = new Modelo();
 
-        sc = new Scanner(System.in);
+        String operacion = JOptionPane.showInputDialog("Operacion");
+        if (operacion.equals("square")) {
+            contenedor.setSideHeight(Float.parseFloat(JOptionPane.showInputDialog("Altura")));
+            contenedor.setSideLength(Float.parseFloat(JOptionPane.showInputDialog("Ancho")));
+            contenedor.setOperacion(operacion);
 
-        System.out.println("What shape would you like to find the area of? (square, circle, triangle, rectangle):");
-        shapeType = sc.nextLine();
-        System.out.println("You said: " + shapeType);
-
-        if (shapeType.equals("square")) {
-            //add area calculations for square
-            float squareArea;
-            float sideLength;
-
-            System.out.println("what is the side length?");
-            sideLength = sc.nextFloat();
-            squareArea = sideLength * sideLength;
-            System.out.println("The area for your square: " + squareArea);
-
-        }
-        if (shapeType.equals("rectangle")) {
-            //add area calculations for rectangle here
-            float sideLength;
-            float sideHeight;
-            float rectangleArea;
-
-            System.out.println("what is the rectangles width?");
-            sideLength = sc.nextFloat();
-            System.out.println("What is the rectangles height?");
-            sideHeight = sc.nextFloat();
-            rectangleArea = sideLength * sideHeight;
-            System.out.println("The area for your rectangle is: " + rectangleArea);
-
-        }
-        if (shapeType.equals("triangle")) {
-            //add area calculations for triangle here
-            float baseLength;
-            float height;
-            float triangleArea;
-
-            System.out.println("What is the base length of the triangle?");
-            baseLength = sc.nextFloat();
-            System.out.println("What is the height of the triangle?");
-            height = sc.nextFloat();
-            triangleArea = (float) (0.5 * baseLength * height);
-            System.out.println("Your triangles area is: " + triangleArea);
-
-        }
-        if (shapeType.equals("circle")) {
-            //add area calculations for a circle here
-            float radius;
-            float circleArea;
-
-            System.out.println("What is the radius of the circle?");
-            radius = sc.nextFloat();
-            circleArea = radius * radius;
-            circleArea = (float) (3.14159265 * circleArea);
-            System.out.println("Your Circles area is " + circleArea);
-
+        } else if (operacion.equals("rectangle")) {
+            contenedor.setSideHeight(Float.parseFloat(JOptionPane.showInputDialog("Altura")));
+            contenedor.setSideLength(Float.parseFloat(JOptionPane.showInputDialog("Ancho")));
+            contenedor.setOperacion(operacion);
+        } else if (operacion.equals("triangle")) {
+            contenedor.setSideLength(Float.parseFloat(JOptionPane.showInputDialog("Base")));
+            contenedor.setHeight(Float.parseFloat(JOptionPane.showInputDialog("Altura triagulo")));
+            contenedor.setOperacion(operacion);
+        } else if (operacion.equals("circle")) {
+            contenedor.setRadius(Float.parseFloat(JOptionPane.showInputDialog("Radio")));
+            contenedor.setOperacion(operacion);
         }
 
+        realizaOperacion(contenedor);
+        Vista.imprimir(contenedor);
     }
+
+    public static void realizaOperacion(Modelo contenedor) {
+        float resultado = 0;
+        switch (contenedor.getOperacion()) {
+            case "square":
+                resultado = contenedor.getSideLength() * contenedor.getSideLength();
+
+                break;
+            case "rectangle":
+                resultado = contenedor.getSideHeight() * contenedor.getSideLength();
+
+                break;
+            case "triangle":
+                resultado = (float) (contenedor.getHeight() * 0.5 * contenedor.getBaseLength());
+
+                break;
+            case "circle":
+                
+                resultado = (float) (3.14159265 * contenedor.getRadius()*contenedor.getRadius());
+
+                break;
+        }
+        contenedor.setResultado(resultado);
+    }
+
 }

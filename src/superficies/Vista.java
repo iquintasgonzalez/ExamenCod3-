@@ -6,10 +6,21 @@
 
 package superficies;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author iquintasgonzalez
  */
 public class Vista {
+    
+    public static void imprimir(Modelo contenedor){
+        
+        
+        JOptionPane.showMessageDialog(null, contenedor.getResultado());
+    
+        
+    }
+        
     
 }
